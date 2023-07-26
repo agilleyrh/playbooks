@@ -1,4 +1,8 @@
 ---
 - name: Clear DNF cache
-  ansible.builtin.command: dnf clean all
-  changed_when: false
+  hosts: all
+
+  tasks:
+  - name: Clear DNF cache
+    ansible.builtin.command: dnf clean all
+    changed_when: false
