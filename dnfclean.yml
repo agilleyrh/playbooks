@@ -1,0 +1,4 @@
+---
+- name: Clear DNF cache
+  ansible.builtin.command: dnf clean all
+  changed_when: false

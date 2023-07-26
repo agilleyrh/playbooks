@@ -1,0 +1,6 @@
+---
+- name: Install RHEL updates
+  register: yum_updates
+  ansible.builtin.package:
+    name: '*'
+    state: latest

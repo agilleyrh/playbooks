@@ -1,0 +1,8 @@
+---
+- name: Install vim and tree via dnf
+  become: true
+  ansible.builtin.package:
+    name:
+      - vim
+      - tree
+    state: present
