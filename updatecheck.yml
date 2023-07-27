@@ -9,4 +9,4 @@
     args:
       warn: false
     register: updates
-    when: updates.stdout_lines | length > 0
+    when: updates.stdout_lines | length > 0 
