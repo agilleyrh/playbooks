@@ -1,8 +1,7 @@
 ---
 - name: Install RHEL updates
   hosts: all
-
-  tasks: 
+  tasks:
     - name: Install RHEL updates
       ansible.builtin.package:
         name: '*'

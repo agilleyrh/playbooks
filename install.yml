@@ -1,7 +1,6 @@
 ---
 - name: Install vim and tree via dnf
   hosts: all
-
   tasks:
   - name: Install vim and tree via dnf
     ansible.builtin.package:
