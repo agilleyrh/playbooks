@@ -3,9 +3,5 @@
   become: yes
   tasks:
   - name: Reboot RHEL
-    shell: reboot
-  - name: Wait for hosts to come back up
-    wait_for:
-      host: "{{ inventory_hostname }}"
-      port: 22
-      timeout: 300
+    reboot:
+      reboot_timeout: 300
