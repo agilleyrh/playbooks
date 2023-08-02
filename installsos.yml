@@ -1,0 +1,7 @@
+---
+- hosts: all
+  tasks:
+  - name: Install sos package
+    yum:
+      name: sos
+      state: present

@@ -1,0 +1,10 @@
+---
+- hosts: all
+  gather_facts: yes
+  become: yes
+  tasks:
+  - name: Generate sosreport
+    command: sosreport
+    args:
+      chdir: /tmp
+    register: sos_output
