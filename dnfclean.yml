@@ -1,7 +1,6 @@
 ---
-- name: Clear DNF cache
-  hosts: all
+- hosts: all
+  become: yes
   tasks:
-  - name: Clear DNF cache
-    ansible.builtin.command: dnf clean all
-    changed_when: false
+  - name: Clear yum cache
+    command: yum clean all

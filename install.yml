@@ -1,10 +1,12 @@
 ---
-- name: Install vim and tree via dnf
-  hosts: all
+- hosts: all
+  become: yes
   tasks:
-  - name: Install vim and tree via dnf
-    ansible.builtin.package:
-      name:
-        - vim
-        - tree
-      state: latest
+  - name: Install Vim
+    yum:
+      name: vim
+      state: present
+  - name: Install Tree
+    yum:
+      name: tree
+      state: present

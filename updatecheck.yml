@@ -1,12 +1,11 @@
----
-- name: Check for RHEL updates
-  hosts: all
+- hosts: all
+  become: yes
   tasks:
-  - name: Check for RHEL updates
-    ansible.builtin.shell: yum list updates | awk 'f;/Updated Packages/{f=1;}' | awk '{
-      print $1 }'
-    changed_when: updates.stdout_lines | length > 0
-    args:
-      warn: false
-    register: updates
-    when: updates.stdout_lines | length > 0 
+  - name: Check for updates
+    yum:
+      name: "*"
+      state: list
+      update_cache: yes
+  - name: Print list of updates
+    debug:
+      var: yum_updates

@@ -1,20 +1,15 @@
 ---
-- name: Setup RHEL configuration files
-  hosts: all
+- hosts: all
+  become: yes
   tasks:
-  - name: Set SELINUX to permissive
+  - name: Set SELinux to permissive
     ansible.posix.selinux:
-      policy: targeted
       state: permissive
-  - name: Ensure that firewalld is enabled and running
-    ansible.builtin.systemd:
+  - name: Start and enable firewalld
+    service:
       name: firewalld
       state: started
-      enabled: true
-  - name: Make sure that cockpit is enabled and running
-    ansible.builtin.systemd:
-      name: cockpit
-      state: started
-      enabled: true
-  - name: Sync clock to New York time
-    ansible.builtin.command: ntpdate -u 1.rhel.pool.ntp.org
+      enabled: yes
+  - name: Set time to New York
+    timezone:
+      name: America/New_York
