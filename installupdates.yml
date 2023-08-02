@@ -7,6 +7,3 @@
       name: "*"
       state: latest
       update_cache: yes
-  - name: Reboot if kernel was updated
-    command: sudo reboot
-    when: ansible_facts.kernel.release.major != ansible_facts.previous_kernel.release.major
