@@ -3,7 +3,8 @@
   become: yes
   tasks:
   - name: Set SELinux to permissive
-    ansible.posix.selinux:
+    selinux:
+      policy: targeted
       state: permissive
   - name: Start and enable firewalld
     service:
