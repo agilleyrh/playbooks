@@ -4,7 +4,7 @@
   - name: Check for updates
     yum:
       name: "*"
-      state: list
+      state: latest
       update_cache: yes
   - name: Print list of updates
     debug:
