@@ -1,16 +1,16 @@
 ---
 - hosts: all
-  become: yes
+  become: true
   tasks:
-  - name: Set SELinux to permissive
-    selinux:
-      policy: targeted
-      state: permissive
-  - name: Start and enable firewalld
-    service:
-      name: firewalld
-      state: started
-      enabled: yes
-  - name: Set time to New York
-    timezone:
-      name: America/New_York
+    - name: Set SELinux to permissive
+      selinux:
+        policy: targeted
+        state: permissive
+    - name: Start and enable firewalld
+      service:
+        name: firewalld
+        state: started
+        enabled: true
+    - name: Set time to New York
+      timezone:
+        name: America/New_York
