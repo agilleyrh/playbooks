@@ -1,9 +1,9 @@
 ---
 - hosts: all
-  become: yes
+  become: true
   tasks:
-  - name: Check for updates
-    yum:
-      name: "*"
-      state: latest
-      update_cache: yes
+    - name: Check for updates
+      ansible.builtin.yum:
+        name: "*"
+        state: latest
+        update_cache: true
