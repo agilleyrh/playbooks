@@ -2,8 +2,8 @@
 - hosts: all
   tasks:
     - name: Put "Try again next time" to stdout
-      shell: echo "Try again next time"
       register: output
+      ansible.builtin.shell: echo "Try again next time"
 
-    - debug:
+    - ansible.builtin.debug:
         msg: "{{ output.stdout }}"

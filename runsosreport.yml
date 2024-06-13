@@ -1,10 +1,10 @@
 ---
 - hosts: all
-  gather_facts: yes
-  become: yes
+  gather_facts: true
+  become: true
   tasks:
-  - name: Generate sosreport
-    command: sosreport
-    args:
-      chdir: /tmp
-    register: sos_output
+    - name: Generate sosreport
+      args:
+        chdir: /tmp
+      register: sos_output
+      ansible.builtin.command: sosreport
