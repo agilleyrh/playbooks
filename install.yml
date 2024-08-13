@@ -1,12 +1,12 @@
 ---
 - hosts: all
-  become: yes
+  become: true
   tasks:
-  - name: Install Vim
-    yum:
-      name: vim
-      state: present
-  - name: Install Tree
-    yum:
-      name: tree
-      state: present
+    - name: Install Vim
+      yum:
+        name: vim
+        state: present
+    - name: Install Tree
+      yum:
+        name: tree
+        state: present
