@@ -2,10 +2,10 @@
 - hosts: all
   tasks:
     - name: Put "Try again next time" to stdout
-      shell: echo "Try again next time"
       register: output
+      ansible.builtin.shell: echo "Try again next time"
 
     - name: This is to test something
-      shell: 
       args:
         warn: false
+      ansible.builtin.shell:
